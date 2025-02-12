@@ -5,7 +5,7 @@ export const noteProviders = [
   {
     provide: 'NOTE_MODEL',
     useFactory: (connection: Connection) =>
-      connection.model('Note', NoteSchema),
+      connection.model('Notes', NoteSchema),
     inject: ['DATABASE_CONNECTION'],
   },
 ];
