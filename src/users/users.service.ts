@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDTO } from './dto/create-user.dto';
 import { User } from './interfaces/user.interface';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class UsersService {
     private userModel: Model<User>,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDTO) {
     const createdUser = new this.userModel(createUserDto);
     return await createdUser.save();
   }

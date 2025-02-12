@@ -1,19 +1,28 @@
-import { Controller, Get } from '@nestjs/common';
-// import { CreateCatDto } from './dto/create-cat.dto';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { CreateNoteDTO } from './dto/create-note.dto';
 import { NoteService } from './note.service';
-import { Note } from './interfaces/note.interface';
 
 @Controller('note')
 export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
-  // @Post()
-  // async create(@Body() createCatDto: CreateCatDto) {
-  //   return this.catsService.create(createCatDto);
-  // }
+  @Post()
+  create(@Body() createNoteDTO: CreateNoteDTO) {
+    return this.noteService.create(createNoteDTO);
+  }
 
   @Get()
-  async findAll(): Promise<Note[]> {
-    return this.noteService.findAll() as Promise<Note[]>;
+  async findAll() {
+    return this.noteService.findAll();
+  }
+
+  @Get(':id')
+  async findWithUser(@Param('id') id: string) {
+    return this.noteService.findWithUser(id);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.noteService.remove(id);
   }
 }
