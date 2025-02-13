@@ -11,6 +11,7 @@ import {
 import { AuthService } from './auth.service';
 import { Public } from './constants';
 import { AuthGuard } from './auth.guard';
+import { SignUpDTO } from './dto/signup.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -27,5 +28,12 @@ export class AuthController {
   @Get('profile')
   getProfile(@Req() req) {
     return req.user;
+  }
+
+  @Public()
+  @HttpCode(HttpStatus.OK)
+  @Post('signUp')
+  async signUp(@Body() signUpDTO: SignUpDTO) {
+    return await this.authService.signUp(signUpDTO);
   }
 }
