@@ -69,6 +69,7 @@ npm run start:prod
 ## 🛡 Autenticação
 - POST /auth/signup - Cadastro de usuário
 - POST /auth/login - Login do usuário
+
 ##📝 Notas
 - GET /notes - Listar todas as notas do usuário
 - POST /notes - Criar uma nova nota
