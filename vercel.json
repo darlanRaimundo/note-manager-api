@@ -1,7 +1,8 @@
 {
   "version": 2,
   "env": {
-    "MONGODB_URI": "@mongodb-uri"
+    "MONGODB_URI": "@mongodbUri",
+    "JWT_SECRET": "@jwtSecret"
   },
   "builds": [
     {
