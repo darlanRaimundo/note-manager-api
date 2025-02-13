@@ -42,6 +42,7 @@ Exemplo:
 ```env
 MONGO_URI=mongodb://localhost:27017/note-manager
 JWT_SECRET=sua_chave_secreta
+PORT=3000
 ```
 
 ## ▶️ Execução
