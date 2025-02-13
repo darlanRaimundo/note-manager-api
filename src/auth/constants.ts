@@ -1,8 +1,3 @@
-// export const jwtConstants = {
-//   secret:
-//     'eyJhbGciOiJIUzI1NiJ9.e30.1aYdKQ4D5I94DPfsiGiWwG2mgcWDT7kei4KbfF-vJxc',
-// };
-
 import { SetMetadata } from '@nestjs/common';
 
 export const jwtConstants = {
