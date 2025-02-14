@@ -40,7 +40,7 @@ Crie um arquivo .env na raiz do projeto e configure as variáveis necessárias, 
 Exemplo:
 
 ```env
-MONGO_URI=mongodb://localhost:27017/note-manager
+MONGODB_URI=mongodb://localhost:27017/note-manager
 JWT_SECRET=sua_chave_secreta
 PORT=3000
 ```
@@ -68,18 +68,19 @@ npm run start:prod
 ## 🔗 Rotas Principais
 
 ## 🛡 Autenticação
+
 - POST /auth/signup - Cadastro de usuário
 - POST /auth/login - Login do usuário
 
 ## 📝 Notas
+
 - GET /notes - Listar todas as notas do usuário
 - POST /notes - Criar uma nova nota
 - PUT /notes/:id - Atualizar uma nota existente
 - DELETE /notes/:id - Excluir uma nota
 
 ## 📜 Licença
+
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
 ### Feito com ❤ por Darlan Raimundo 🚀
-
-
