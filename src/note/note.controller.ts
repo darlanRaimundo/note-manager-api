@@ -4,12 +4,14 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   UseGuards,
 } from '@nestjs/common';
 import { CreateNoteDTO } from './dto/create-note.dto';
 import { NoteService } from './note.service';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { UpdateNoteDTO } from './dto/update-note.dto';
 
 @Controller('note')
 export class NoteController {
@@ -31,6 +33,15 @@ export class NoteController {
   @Get(':id')
   async findWithUser(@Param('id') id: string) {
     return this.noteService.findWithUser(id);
+  }
+
+  @UseGuards(AuthGuard)
+  @Patch(':id')
+  async updateNote(
+    @Param('id') id: string,
+    @Body() updateNoteDTO: UpdateNoteDTO,
+  ) {
+    return await this.noteService.updateNote(id, updateNoteDTO);
   }
 
   @UseGuards(AuthGuard)

@@ -2,6 +2,7 @@ import { Model } from 'mongoose';
 import { Injectable, Inject } from '@nestjs/common';
 import { CreateNoteDTO } from './dto/create-note.dto';
 import { Note } from './interfaces/note.interface';
+import { UpdateNoteDTO } from './dto/update-note.dto';
 
 @Injectable()
 export class NoteService {
@@ -21,6 +22,15 @@ export class NoteService {
 
   async findWithUser(userId: string): Promise<Note[]> {
     return this.noteModel.find({ userId }).exec();
+  }
+
+  async updateNote(id: string, updateNoteDTO: UpdateNoteDTO) {
+    return this.noteModel
+      .findByIdAndUpdate(id, {
+        ...updateNoteDTO,
+        updatedAt: new Date(),
+      })
+      .exec();
   }
 
   async remove(id: string) {
