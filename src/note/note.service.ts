@@ -21,7 +21,8 @@ export class NoteService {
   }
 
   async findWithUser(userId: string): Promise<Note[]> {
-    return this.noteModel.find({ userId }).exec();
+    const notes = await this.noteModel.find({ userId }).exec();
+    return notes;
   }
 
   async updateNote(id: string, updateNoteDTO: UpdateNoteDTO) {
@@ -34,7 +35,6 @@ export class NoteService {
   }
 
   async remove(id: string) {
-    await this.noteModel.findByIdAndDelete(id);
-    return `This action removes a #${id} user`;
+    return await this.noteModel.findByIdAndDelete(id);
   }
 }
