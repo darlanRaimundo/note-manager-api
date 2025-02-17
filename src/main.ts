@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     cors: {
-      origin: '*',
+      origin: 'https://note-manager-front.vercel.app/',
       credentials: true,
       methods: 'GET,HEAD,OPTIONS,POST,PUT',
       allowedHeaders:
