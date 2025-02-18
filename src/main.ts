@@ -3,7 +3,12 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    cors: false,
+    cors: {
+      origin: 'https://note-manager-front.vercel.app/',
+      credentials: true,
+      methods: '*',
+      allowedHeaders: '*',
+    },
   });
   await app.listen(process.env.PORT ?? 3000);
 }
